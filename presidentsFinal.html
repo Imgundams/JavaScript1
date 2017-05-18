@@ -107,10 +107,16 @@ function yearSearch(yearSearchedString){
 				}
 				if(YearSearched >=1924){
 							pcount+=5;
+							
+							if(YearSearched > new Date().getFullYear())
+							{
+								pcount = 0;
+							}
 						}
 				
-			
-		document.getElementById("outputHere").innerHTML +=pcount + " President(s) alive."; 
+				
+				
+		document.getElementById("outputHere").innerHTML +=pcount + " Presidents alive."; 
 
 			}
 	
