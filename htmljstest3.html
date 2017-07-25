@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+  <p>Before the script...</p>
+  <p>
+  <script>
+  
+  var word1 = "Arrgh!";
+  
+  var word2 = "He said \"My name is elliott\"";
+  var word3 = word2.toUpperCase();
+  var stringarray=["Word1" , "Word2", "Word3"];
+  var num = 3;
+  var word4 = " is a magic number";
+  var word5 = num+word4;
+    
+
+  
+  
+  	function saysomething(){
+	window.alert(word1);
+
+	}
+	
+		function button1(){
+	window.alert(word2);
+
+	}
+	
+		function button2(){
+	window.alert(word3);
+
+	}
+  
+  	function show1(){
+	window.alert(word5);
+	
+	}
+	
+	function show2(){
+	window.alert(stringarray);
+	
+	}
+	
+	function show3(){
+	stringarray.push("Word");
+	
+	}
+	
+	function show4(){
+	stringarray.pop();
+	
+	}
+  </script>
+  <p>...After the script.</p>
+  <p>Don't press any of these buttons.</p>
+  <form>
+    <input type="button" onclick="saysomething()" value="Say Hello" />
+	<input type="button" onclick="button1()" value="but1" />
+	<!-- <input type="button" onclick="person1.age1=ageinc(person1.age1)" value="Increase dudes age" /> -->
+	<input type="button" onclick="button2()" value="but2" />
+	<input type="button" onclick="show1()" value="but3" />
+	<input type="button" onclick="show2()" value="Show all" />
+	<input type="button" onclick="show3()" value="push word" />
+	<input type="button" onclick="show4()" value="pop word" />
+     </form>      
+
+</body>
+</html>

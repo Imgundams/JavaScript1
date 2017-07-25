@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+  <p>Before the script...</p>
+  <p>
+  <script>
+	var input=10;
+	var words = "Arrgh!"
+	
+	var loadsawords = "He said \"My name is elliott\"";
+	function squarer(inputnum){
+	var squareresult= 0;
+	squareresult = parseInt(inputnum);
+	squareresult = squareresult*squareresult;
+	window.alert(squareresult);
+	return squareresult;
+	}
+	
+	function sumer(input1, input2, input3){
+	var sumresult =0;
+	sumresult= input1+input2+input3;
+	window.alert(sumresult);
+	return sumresult;
+	}
+	function Persons(name1, age1,occupation1)
+	{
+		var it = {};
+		it.name1 = name1;
+		it.age1 = age1;
+		it.occupation1 = occupation1;
+		return it;
+	}
+	
+		
+	var Person = {name:"Dude",age:12,occupation:"Button presser"};
+	document.write(Person.name," ",Person.age," ",Person.occupation,"<br>");
+	Person.age = 22;
+	Person.name = "Alien";
+	Person.occupation = "Thinker";
+	document.write(" ",Person.name," ",Person.age," ",Person.occupation,"<br>");
+	
+	var person1 = Persons("what",44,"Door opener");
+	document.write(" ",person1.name1," ",person1.age1, " ",person1.occupation1,"<br>");
+	document.write(" ",loadsawords);
+	word2 = loadsawords.toUpperCase;
+	function saysomething(){
+	window.alert(words);
+	}
+	function ageinc(agetoincrease){
+	agetoincrease++;
+	console.log(agetoincrease);
+	return agetoincrease;
+	}
+	function howold(){
+	window.alert(person1.age1);
+	}
+	
+	
+	
+	
+	
+	
+
+  </script>
+  <p>...After the script.</p>
+  <form>
+	<input type="text" id="textinput"/>
+	<input type="button" onclick="squarer(getElementById('textinput').value)" value="Square a number" />
+    <input type="button" onclick="saysomething()" value="Say Hello" />
+	<input type="button" onclick="person1.age1=ageinc(person1.age1)" value="Increase dudes age" />
+	<!-- <input type="button" onclick="person1.age1=ageinc(person1.age1)" value="Increase dudes age" /> -->
+	<input type="button" onclick="howold()" value="Showsdudes age" />
+     </form>      
+
+</body>
+</html>
+
+
+<!--
+	Create a function accepts a number and outputs its square
+	Create a function that accepts 3 numbers and returns the sum of them.
+	Create a Person object with three values, name, age, occupation.
+		Output the contents of that object, then edit them, and output again.
+	Create a button that calls a function when clicked.
+	Create a button that increases the age of your Person object.
+-->

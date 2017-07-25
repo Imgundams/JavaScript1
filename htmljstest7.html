@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+
+	<div>
+	<font face="Comic sans MS" size="2">
+		<p>Paragraph Tag</p><br><h2><a id="ParagraphTag">words change</a></h2>
+		<p> </p><br><h2><a id="displayObject2"></a></h2>
+		<input name="Paratagmaker" onclick= "paragraphy();" type="button" value="Paragraph" /><br>
+		<input name="buttonExecute" onclick="deparagraphy();" type="button" value="Delete Paragraph" /><br>
+
+		<textarea id="textbox" class="form-control" rows="3" placeholder="Text goes here"></textarea>
+		<input name="buttonExecute" onclick="textb(document.getElementById('textbox').value)" type="button" value="Enter" />
+		
+		<br>
+		</font>
+	</div>
+<script>
+var words= "change words";
+
+	function textb(word){
+	word = document.getElementById("textbox");
+	document.getElementById("ParagraphTag").innerHTML = word.value;
+	}
+	
+	function deparagraphy(){
+	if (document.getElementById('textbox').value !=='')
+	words = document.getElementById('textbox').value;
+	document.getElementById("ParagraphTag").innerHTML = words ; 
+	}
+	function paragraphy(){
+	if (document.getElementById('textbox').value !=='')
+	words = document.getElementById('textbox').value;
+	document.getElementById("ParagraphTag").innerHTML = "<p>"+ words +"</p>"; 
+	}
+	
+		
+	
+
+</script>
+
+</body>
+</html>

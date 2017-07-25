@@ -1,3 +1,2 @@
-# JavaScript1
-send to this guy
-Alexander.Taylor@qa.com
+# JavaScript
+Here is my website using javascripts and a bootstrap template

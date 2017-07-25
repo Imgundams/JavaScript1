@@ -1,0 +1,25 @@
+<!--Copy and paste this into plain text save as HTML--><!DOCTYPE html>
+<html>
+<HEADER>
+	<title>Link Getter</title>
+</HEADER>
+<body>
+<h1 style="text-align:center;">Paste link to display the link.</h1>
+<div style="text-align:center"> 
+	<input style="text-align:center;" type="text" id="webtxt" placeholder="website goes here"></br>
+	<input style="text-align:center;" type="text" onchange="toLink(getElementById('webtxt').value,getElementById('txt').value)" id="txt" placeholder="code goes here"></br>
+</div>
+<p  style="text-align:center;font-size:1200%;" id="output"></p>
+
+<script>
+function toLink(web,txt) {
+    var str = txt;
+    var website = web;
+    var weblink = website+txt;
+    var result = str.link(weblink);
+    document.getElementById("output").innerHTML = result;
+}
+</script>
+
+</body>
+</html>

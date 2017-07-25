@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+<!--
+<form>
+       <input type="button" onclick="buttonStuff()" value="Click!" />button</br>
+</form>
+<br>
+<form name ='buttonButton'>
+	 <input type="button" onclick="buttonStuff2()"; value="Click!" />
+	<input type="text" id="txt"></br>
+<br>
+-->
+	<div>
+	<font face="Comic sans MS" size="3">
+		 <p>Super hero squad name object is: </p><br><h2><a id="displayObject1"></a></h2>
+		 <p>Super hero squad home town object is: </p><br><h2><a id="displayObject2"></a></h2>
+		 <p>Super hero formed object is: </p><br><h2><a id="displayObject3"></a></h2>
+		 <p>Super hero base object is: </p><br><h2><a id="displayObject4"></a></h2>
+		 <p>Super hero active object is: </p><br><h2><a id="displayObject5"></a></h2>
+		 <p>Super hero member object is:<br><a id="displayObject6"></a></p>
+		</font>
+	</div>
+<script>
+
+var requestURL = 'https://raw.githubusercontent.com/womackx/JSONDataRepo/master/example.json';
+var br = document.createElement('BR');
+
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+
+request.responseType = 'json';
+request.send();
+
+request.onload = function() {
+		var superHeroes = request.response;
+		
+		document.getElementById("displayObject1").innerHTML = superHeroes["squadName"];
+		document.getElementById("displayObject2").innerHTML = superHeroes["homeTown"];
+		document.getElementById("displayObject3").innerHTML = superHeroes["formed"];
+		document.getElementById("displayObject4").innerHTML = superHeroes["secretBase"];
+		document.getElementById("displayObject5").innerHTML = superHeroes["active"];
+	//	document.getElementById("displayObject6").innerHTML = JSON.stringify(superHeroes.members[0].powers);
+	//	var element = document.createElement("h1");
+	//	myH1.textContext = superHeroes.members[1];
+	//	document.getElementsById('name')[0].appendChild(myH1);
+	//	document.getElementById("displayObject6").innerHTML = superHeroes.members[0][0]
+	//	document.getElementById("displayObject6").innerHTML = superHeroes.members[1].name +" "+ superHeroes.members[1].powers;
+	
+		var stuff = document.getElementById("displayObject6");
+		stuff.InnerHTML = "Hero List: "
+
+		var members = superHeroes['members'];
+		for(var i=0;i<superHeroes.members.length;i++){
+			stuff.innerHTML += superHeroes.members[i].name + " ";
+			stuff.innerHTML += superHeroes.members[i].age + " ";
+			stuff.innerHTML += superHeroes.members[i].secretIdentity + " ";
+			
+			var superpowers = members[i].powers;
+			for(var j=0;j<superpowers.length;j++){
+					stuff.innerHTML += superpowers[j]+ " ";
+			}
+			stuff.innerHTML +="<br>";
+		}
+		
+	
+	
+	}
+	
+		
+	
+
+</script>
+
+</body>
+</html>

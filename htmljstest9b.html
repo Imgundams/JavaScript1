@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<font face="Comic sans MS" size="3">
+	<h2>Enter king's name: </h2>
+	<input type="text" name="enter" class="enter" value="" id="textBox"/>
+	<input type="button" value="go" onclick="searcher(getElementById('textBox').value);"/> <br>
+	<p>Name<br><a id="Name"></a>  </p>
+	<p>Country<br> <a id="Country"></a>   </p>
+	<p>House<br>  <a id="House"></a>  </p>
+	<p>Year<br> <a id="Year"></a>   </p>
+	<p>Type something!<br><a id="youTyped"></a></p>
+</body>
+<script>
+	
+	var requestURL = "https://raw.githubusercontent.com/womackx/JSONDataRepo/master/kings.json";
+	var request = new XMLHttpRequest();
+	request.open("GET", requestURL);
+	request.responseType = "json";
+	request.send();
+	
+	function searcher(words)
+	{
+		
+		document.getElementById("Name").innerHTML = " ";
+		document.getElementById("Country").innerHTML = " ";
+		document.getElementById("House").innerHTML = " ";
+		document.getElementById("Year").innerHTML = " ";
+		//var a =document.getElementById('textBox').value;
+		
+		var royalty = request.response;
+		//document.getElementById("Name").innerHTML = JSON.stringify(royalty); 
+		for(var i = 0; i < royalty.length; i++) {
+			if(words === royalty[i].nm) {
+				window.alert("Name Found")
+				document.getElementById("Name").innerHTML = royalty[i].nm + "<br>";
+				document.getElementById("Country").innerHTML = royalty[i].cty;
+				document.getElementById("House").innerHTML = royalty[i].hse+ "<br>";
+				document.getElementById("Year").innerHTML = royalty[i].yrs+ "<br>";
+			}
+			else if (words === royalty[i].cty){
+			//	window.alert("County Found")
+				document.getElementById("Name").innerHTML += royalty[i].nm + "<br>";
+				document.getElementById("Country").innerHTML += royalty[i].cty;
+				document.getElementById("House").innerHTML += royalty[i].hse+ "<br>";
+				document.getElementById("Year").innerHTML += royalty[i].yrs+ "<br>";
+			}
+			else if (words === royalty[i].hse){
+			//	window.alert("House Found")
+				document.getElementById("Name").innerHTML += royalty[i].nm+ "<br>";
+				document.getElementById("Country").innerHTML += royalty[i].cty;
+				document.getElementById("House").innerHTML += royalty[i].hse;
+				document.getElementById("Year").innerHTML += royalty[i].yrs+ "<br>";
+			}
+			else if (words === royalty[i].yrs){
+			//	window.alert("Date Found");
+				document.getElementById("Name").innerHTML += royalty[i].nm+ "<br>";
+				document.getElementById("Country").innerHTML += royalty[i].cty;
+				document.getElementById("House").innerHTML += royalty[i].hse+ "<br>";
+				document.getElementById("Year").innerHTML += royalty[i].yrs+ "<br>";
+			}
+			}
+	}
+	
+</script>
+</html>

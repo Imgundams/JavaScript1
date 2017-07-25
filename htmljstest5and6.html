@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+<form>
+       <input type="button" onclick="buttonStuff(),fizzBuzz()" value="Click!" />FizzBuzz button</br>
+</form>
+
+<br>
+<form name ='BigNumberSlicer'>
+	 <input type="button" onclick="bigNumber(getElementById('txt').value)"; value="Click!" /></button>
+	<input type="text" id="txt" placeholder="big number goes here"></br>
+<br>
+	<div>
+		</br> <p>Here:<a id="bloop"></a></p>
+	</div>
+<script>
+	var count=0;
+	var input = document.getElementById("txt");
+	
+	function buttonStuff(){
+	
+	count++;
+	document.getElementById("bloop").innerHTML = count;
+	}
+
+	function fizzBuzz()
+		{
+			for(var i =1; i <=100; i++){
+				if(i % 15 === 0)
+					console.log("fizzbuzz");
+				else if(i % 3 === 0)
+					console.log("fizz");
+				else if(i % 5 === 0)
+					console.log("buzz");
+				else
+					console.log(i);
+			}
+		}
+
+	function bigNumber(bignum){
+	bigNum = parseInt(bignum);
+	
+	while(bigNum>1)
+		
+		if (bigNum % 3 == 0){
+			bigNum = bigNum / 3;
+			console.log(bigNum);
+			return bigNum
+		}
+		else if ((bigNum+1) % 3 == 0){
+			bigNum++;
+			console.log(bigNum);
+			
+		}
+		else if ((bigNum-1) % 3 == 0){
+			bigNum--;
+			console.log(bigNum);
+			
+		}
+	}
+		
+	
+</script>
+
+</body>
+</html>

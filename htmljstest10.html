@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<h1>Welcome to Dan's Garage! </h1>
+
+	<label><h4>Enter a vehicle to check in into the Fix Pit or Enter just a Reg to Check Out<h4></label>
+	
+	<select id = "carType">
+	<option value=" " disabled selected hidden>Vehicle Type</option>
+	<option value="Car">Car</option>
+	<option value="LuxuryCar">Luxury Car</option>
+	<option value="Motocycle">Motocycle</option>
+	<option value="Train">Train</option>
+	<option value="Truck">Truck</option>
+	<option value="Bus">Bus</option>
+	<option value="Coach">Coach</option>
+	<option value="Tank">Tank</option>
+	<option value="SpaceShip">Space Ship</option>
+	<option value="Rocket">Rocket</option>
+	</select>
+
+	<input id="vehicleMakeBox" maxlength="25"type="text" placeholder="Vehicle Make (eg. Volvo)"></input>
+	<input id="vehicleRegNum" maxlength="8" type="text" placeholder="Vehicle Reg No.(eg. XXXX XXX)"></input>
+	<br>Has one or more faults: <input type="checkbox" id="faults">
+	<input id="go" name="buttonExecute" onclick="store(getElementById('vehicleMakeBox').value)" type="button" value="Check In" />
+	<input id="showGarage" name="buttonExecute" onclick="showGarage()" type="button" value="Show me the garage!" />
+	
+	
+	<p>Display:<br><a id="youTyped"></a></p>
+	<input id="go" name="buttonExecute" onclick="checkOut(getElementById('vehicleRegNum').value)" type="button" value="Check Out" />
+	
+</body>
+<script>
+	var carType;
+	var vehicleMakeBox;
+	var vehicleRegNum;
+	var hasFaults;
+	var garage =[];
+	var counter = 0;
+	document.getElementById("vehicleRegNum").size = "25";
+	
+	function store(vehicleMake){
+	var cost= 0;
+	var car= [];
+	vehicleMakeBox = vehicleMake.trim();
+	carType= document.getElementById('carType').value;
+	vehicleRegNum= document.getElementById('vehicleRegNum').value;
+	hasFaults == document.getElementById('faults').value;
+	if(document.getElementById('faults').checked)
+	hasFaults = true;
+	else
+	hasFaults = false;
+	
+	if(carType === "Car")
+	cost = 500;
+	if(carType === "LuxuryCar")
+	cost = 2500;
+	if(carType === "Motocycle")
+	cost = 400;
+	if(carType === "Train"){
+		cost = 3000;
+		if(hasFaults){
+		cost = cost*20;
+		}
+	}
+	if(carType === "Truck")
+	cost = 5500;
+	if(carType === "Bus"){
+	cost = 3000;
+	if(hasFaults){
+		cost = cost*2;
+		}
+	}
+	if(carType === "Coach")
+	cost = 2500;
+	if(carType === "Tank"){
+	cost = 4000;
+	if(hasFaults){
+		cost = cost*2;
+		}
+	}
+	if(carType === "SpaceShip"){
+	cost = 5400000;
+	if(hasFaults){
+		cost = cost*20;
+		}
+	}
+	if(carType === "Rocket"){
+	cost = 1200000;
+	if(hasFaults){
+		cost = cost*2;
+		}
+	}
+	if(hasFaults)
+	cost = cost*2;
+	
+	car = [ carType, vehicleMakeBox, vehicleRegNum, hasFaults ,cost];
+	garage.push(car);
+	
+	counter++;
+	document.getElementById("youTyped").innerHTML += carType +" " + vehicleMakeBox + " "+ vehicleRegNum +" Faults is " + hasFaults +" Repair costs is £"+cost+"<br>";
+	}
+	function showGarage(){
+		document.getElementById("youTyped").innerHTML = "<h3>Car Type, Vehicle Make, Registration Number, Faults, Cost to Repair</h3>"+ "<br>";
+		for(i = 0; i < garage.length; i++){
+			for(j = 0; j<garage[i].length; j++){
+			document.getElementById("youTyped").innerHTML += garage[i][j] + ", ";
+			}
+			document.getElementById("youTyped").innerHTML +="<br>" ;
+		}
+		
+	}
+	function checkOut(reg){
+	register = reg;
+		for (i=0; i<garage.length; i++){
+			if( garage[i][2]=== register){
+				document.getElementById("youTyped").innerHTML ="";// clears output
+				for(j = 0; j<garage[i].length; j++){
+				document.getElementById("youTyped").innerHTML += garage[i][j]+ ", ";
+				}
+				garage.splice(i,1);
+				document.getElementById("youTyped").innerHTML += "<br>Has Been Removed From The Database.";
+			}
+		}
+	}
+	
+	
+</script>
+</html>

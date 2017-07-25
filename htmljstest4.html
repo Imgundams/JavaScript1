@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+  <p>Before the script...</p>
+  <p>
+  <script>
+  
+  var word1 = "Arrgh!";
+  
+  var word2 = "He said \"My name is elliott\"";
+  var word3 = word2.toUpperCase();
+  var stringarray=["Word1" , "Word2", "Word3"];
+  var num = 3;
+  var word4 = " is a magic number";
+  var word5 = num+word4;
+  var person1 = Persons("name", 15, "occupation");
+  var person2 =Person("name2", 25, "occupation2");
+  var person3 =Person("name3", 35, "occupation3");
+  
+//	person4 =Person("name4", 45, "occupation4");
+
+	
+	function ageinc(agetoincrease){
+	agetoincrease++;
+	return agetoincrease;
+	}
+	//if between 20 and 40 agecheck becomes true
+	function agecheck(guysage){
+		if (guysage >= 20 && guysage <=40) {
+		return true;
+		}else
+		{
+		return false}
+		
+	}
+  
+  function Persons(name, age,occupation)
+	{
+		var it = {};
+		it.name = name;
+		it.age = age;
+		it.occupation = occupation;
+		return it;
+	}
+	
+	
+	
+	
+  	function saysomething(){
+	window.alert("no Errors");
+
+	}
+
+  
+  	function show1(){
+	window.alert(agecheck(person1.age));
+	
+	}
+	
+	function show2(){
+	window.alert(person1.age);
+	
+	}
+	
+	function show3(){
+	person1.age=ageinc(person1.age)
+	}
+	
+  </script>
+  <p>...After the script.</p>
+  <p>Test buttons.</p>
+  <form>
+    <input type="button" onclick="saysomething()" value="Say Hello" />
+	<input type="button" onclick="show1()" value="age check" />
+	<input type="button" onclick="show2()" value="show age" />
+	<input type="button" onclick="show3()" value="increase age" />
+     </form>      
+
+</body>
+</html>
